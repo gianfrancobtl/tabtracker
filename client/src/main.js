@@ -16,6 +16,8 @@ Vue.use('material-design-icons-iconfont/dist/material-design-icons.css')
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
