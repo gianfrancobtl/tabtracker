@@ -1,22 +1,41 @@
-<template><div>
-  <h1>Register</h1>
-
-  <input
-  type="email"
-  name="email"
-  v-model="email"
-  placeholder="email"/>
-  <br>
-
-  <input
-  type="password"
-  name="password"
-  v-model="password"
-  placeholder="password"/>
-  <br>
-  <button @click="register">Register</button>
-
-</div></template>
+<template>
+  <v-layout column>
+    <v-flex xs6 offset-xs3>
+      <v-card width='400px' class='mx-auto mt-5'>
+        <v-card-title>
+          <h1 class='display-1'>Register</h1>
+        </v-card-title>
+        <v-card-text>
+        <v-form>
+          <v-text-field
+            label="Email"
+            v-model="email"
+            prepend-icon = "mdi-account-circle"
+          ></v-text-field>
+          <v-text-field
+            label="Password"
+            :type= "showPassword ? 'text' : 'password'"
+            v-model="password"
+            prepend-icon='mdi-lock'
+            :append-icon= "showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append = "showPassword = !showPassword"
+            autocomplete="new-password"
+          ></v-text-field>
+        </v-form>
+        <div class="danger-alert" v-html="error" />
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-btn></v-btn>
+          <v-spacer></v-spacer>
+        <v-btn color="info" @click="register">
+          Register
+        </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-flex>
+  </v-layout>
+</template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
@@ -24,7 +43,9 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      error: null,
+      showPassword: false
     }
   },
   /* watch: {
@@ -34,11 +55,14 @@ export default {
   }, */
   methods: {
     async register () {
-      const response = await AuthenticationService.register({
-        email: this.email,
-        password: this.password
-      })
-      console.log(response.data)
+      try {
+        await AuthenticationService.register({
+          email: this.email,
+          password: this.password
+        })
+      } catch (error) {
+        this.error = error.response.data.error
+      }
     }
   }
   /* mounted () {
@@ -50,5 +74,7 @@ export default {
 </script>
 
 <style scoped>
-
+.error{
+  color:red;
+}
 </style>
