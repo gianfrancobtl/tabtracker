@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <v-layout class="container">
     <v-flex xs6 offset-xs3 class="fill-height" fluid>
       <v-row>
         <v-col align="center">
@@ -61,5 +61,11 @@ export default {
 </script>
 
 <style scoped>
+
+.container {
+  height: 90vh;
+  display: grid;
+  grid-template-rows: 85vh 5vh;
+}
 
 </style>

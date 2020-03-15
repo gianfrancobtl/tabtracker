@@ -92,10 +92,10 @@ span {
 }
 
 .container {
-  height: 100vh;
+  height: 90vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 85vh 15vh;
+  grid-template-rows: 80vh 10vh;
 }
 
 .container .left-box {
