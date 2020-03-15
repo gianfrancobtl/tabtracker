@@ -9,8 +9,8 @@ module.exports = {
             host: process.env.HOST || 'localhost',
             storage: './mysysl_express_vue.sqlite'
         }
-    }/* ,
+    },
     authentication: {
         jwtSecret: process.env.JWT_SECRET || 'secret'
-    } */
+    }
 }

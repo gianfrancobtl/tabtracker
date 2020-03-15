@@ -8,14 +8,14 @@ import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 Vue.config.productionTip = false
-
 Vue.use(Vuetify)
-Vue.use('material-design-icons-iconfont/dist/material-design-icons.css')
+export default new Vuetify({ })
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  vuetify: new Vuetify(),
   components: {
     App
   },

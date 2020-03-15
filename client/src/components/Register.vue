@@ -5,7 +5,7 @@
         <v-col align="center">
           <v-card width="400px" class="mx-auto mt-5">
             <v-card-title>
-              <h1 class="display-1">Register</h1>
+              <h1 class="display-1">Sign Up</h1>
             </v-card-title>
             <v-card-text>
               <v-form>
@@ -24,7 +24,7 @@
             <v-card-actions>
               <v-btn>Log in with Google</v-btn>
               <v-spacer></v-spacer>
-              <v-btn @click="register">Register</v-btn>
+              <v-btn @click="register">Sign up</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -69,7 +69,5 @@ export default {
 </script>
 
 <style scoped>
-.error {
-  color: red;
-}
+
 </style>
