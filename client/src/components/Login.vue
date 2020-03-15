@@ -5,17 +5,17 @@
         <v-col align="center">
           <v-card width="400px" class="mx-auto mt-5">
               <v-card-actions>
-                <v-btn align="center">Log in with Google</v-btn>
+                <v-btn>Continua con Google</v-btn>
               </v-card-actions>
               <v-divider></v-divider>
             <v-card-title>
-              <h1 class="display-1">Log in</h1>
+              <h1 class="display-1">inicia sesión con tu email</h1>
             </v-card-title>
             <v-card-text>
               <v-form>
-                <v-text-field label="Email" v-model="email" prepend-icon="person"></v-text-field>
+                <v-text-field label="Email" v-model= "email" prepend-icon="person"></v-text-field>
                 <v-text-field
-                  label="Password"
+                  label="Contraseña"
                   type= "password"
                   v-model= "password"
                   prepend-icon="lock"
@@ -26,7 +26,7 @@
             <v-divider></v-divider>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn @click="login">Login</v-btn>
+              <v-btn @click="login">Entrar</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -42,19 +42,21 @@ export default {
     return {
       email: '',
       password: '',
-      error: null,
+      error: null
     };
   },
 
   methods: {
-    async login() {
+    async login () {
       try {
-        await AuthenticationService.login({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
-        });
+        })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
-        this.error = error.response.data.error;
+        this.error = error.response.data.error
       }
     }
   }

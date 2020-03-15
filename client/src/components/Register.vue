@@ -8,7 +8,7 @@
               <h1 class="display-1">Sign Up</h1>
             </v-card-title>
             <v-card-text>
-              <v-form>
+              <v-form autocomplete="off">
                 <v-text-field label="Email" v-model="email" prepend-icon="person"></v-text-field>
                 <v-text-field
                   label="Password"
@@ -40,31 +40,23 @@ export default {
     return {
       email: '',
       password: '',
-      error: null,
+      error: null
     };
   },
-  /* watch: {
-    email (value){
-      console.log ("email has changed", value);
-    }
-  }, */
   methods: {
     async register() {
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
-        });
+        })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error;
       }
     }
   }
-  /* mounted () {
-    setTimeout (() => {
-      this.email="Please write an email"
-    }, 2000);
-  } */
 };
 </script>
 

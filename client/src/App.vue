@@ -11,14 +11,19 @@
 </template>
 
 <script>
-//import PageHeader from '@/components/Header.vue'
 export default {
-  name: 'App',
-  components: {
-  }
+  name: 'App'
 }
 </script>
 
 <style>
-
+p,
+a,
+h1,
+h2,
+h3,
+li,
+span {
+  font-family: "Open Sans", sans-serif;
+}
 </style>

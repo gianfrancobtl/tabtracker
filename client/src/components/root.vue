@@ -4,15 +4,15 @@
       <ul>
         <li>
           <i class="fas fa-search icon"></i>
-          Follow your interests.
+          .
         </li>
         <li>
           <i class="fas fa-user-friends icon"></i>
-          Hear what people are talking about.
+          .
         </li>
         <li>
           <i class="far fa-comment icon"></i>
-          Join the conversation.
+          .
         </li>
       </ul>
     </div>
