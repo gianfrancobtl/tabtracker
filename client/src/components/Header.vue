@@ -4,7 +4,7 @@
         <router-link 
         class="home"
         tag="span"
-        :to="{
+        :tffo="{
           name: 'root'
         }">
         TabTracker
@@ -35,4 +35,4 @@ export default {};
 .home:hover {
   color: #E9E;
 }
-</style>
+</style> */
