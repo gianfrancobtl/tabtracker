@@ -13,10 +13,12 @@
 
 <script>
 import PageHeader from '@/components/Header.vue'
+import Panel from '@/components/Panel.vue'
 export default {
   name: 'App',
   components: {
-    PageHeader
+    PageHeader,
+    Panel
   }
 }
 </script>

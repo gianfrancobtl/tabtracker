@@ -1,18 +1,22 @@
 <template>
-  <panel>
+  <v-layout class="container">
+    <v-flex xs6 offset-xs3 class="fill-height" fluid>
+      <v-row>
+        <v-col align="center">
           <div class="login-form">
             <form>
               <div class="text-center social-btn">
                 <a href="#" class="btn btn-primary btn-lg btn-block">
-                  <font-awesome-icon class="icon" icon="facebook" /> Continuar con
+                  <!-- <font-awesome-icon class="icon" icon="facebook" />  -->
+                  Continuar con
                   <b>Facebook</b>
                 </a>
                 <a href="#" class="btn btn-info btn-lg btn-block">
-                  <i class="fa fa-twitter"></i> Continuar con
+                  Continuar con
                   <b>Twitter</b>
                 </a>
                 <a href="#" class="btn btn-danger btn-lg btn-block">
-                  <i class="fa fa-google"></i> Continuar con
+                  Continuar con
                   <b>Google</b>
                 </a>
               </div>
@@ -21,11 +25,12 @@
               </div>
               <div class="form-group">
                 <input
-                  type="text"
+                  type="email"
                   class="form-control input-lg"
-                  name="username"
-                  placeholder="Nombre de usuario"
+                  name="email"
+                  placeholder="Email"
                   required="required"
+                  v-model= "email"
                 />
               </div>
               <div class="form-group">
@@ -35,10 +40,15 @@
                   name="password"
                   placeholder="Contraseña"
                   required="required"
+                  v-model= "password"
                 />
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg btn-block login-btn" @click="login">Entrar</button>
+                <button
+                  type="submit"
+                  class="btn btn-success btn-lg btn-block login-btn"
+                  @click="login"
+                >Entrar</button>
               </div>
             </form>
             <div class="text-center">
@@ -46,23 +56,22 @@
               <a @click="navigateTo('register')">Registrate</a>
             </div>
           </div>
-        </panel>
+        </v-col>
+      </v-row>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
-import AuthenticationService from "@/services/AuthenticationService";
-import Panel from '@/components/Panel'
+import AuthenticationService from "@/services/AuthenticationService"
+
 export default {
   data() {
     return {
       email: "",
       password: "",
       error: null
-    };
-  },
-
-  components:{
-    Panel
+    }
   },
 
   methods: {
@@ -78,8 +87,8 @@ export default {
         this.error = error.response.data.error;
       }
     },
-    components:{
-      Panel
+    navigateTo(route) {
+      this.$router.push(route);
     }
   }
 };
@@ -87,9 +96,9 @@ export default {
 
 <style scoped>
 .container {
-  height: 89vh;
+  height: 90vh;
   display: grid;
-  grid-template-rows: 84vh 5vh;
+  grid-template-rows: 85vh 5vh;
   font-family: "Roboto", sans-serif;
 }
 .form-control {

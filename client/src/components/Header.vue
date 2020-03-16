@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar fixed class="flex-container" dark>
+  <v-toolbar fixed class="cyan" dark>
     
     <v-toolbar-title class="mr-4">
       <router-link class="home" tag="span" :to="{
@@ -54,10 +54,6 @@ export default {
 </script>
 
 <style scoped>
-.flex-container {
-  height: 5vh;
-}
-
 .home {
   cursor: pointer;
 }

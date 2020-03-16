@@ -1,33 +1,26 @@
 <template>
-  <panel>
+  <v-layout class="container">
+    <v-flex xs6 offset-xs3 class="fill-height" fluid>
+      <v-row>
+        <v-col align="center">
           <div class="signup-form">
             <form>
               <h2>Registrate</h2>
               <p class="hint-text">Hacelo con tu red social favorita o dirección de email</p>
               <div class="social-btn text-center">
                 <a href="#" class="btn btn-primary btn-lg">
-                  <i class="fa fa-facebook"></i> Facebook
+                  Facebook
                 </a>
                 <a href="#" class="btn btn-info btn-lg">
-                  <i class="fa fa-twitter"></i> Twitter
+                  Twitter
                 </a>
                 <a href="#" class="btn btn-danger btn-lg">
-                  <i class="fa fa-google"></i> Google
+                  Google
                 </a>
               </div>
               <div class="or-seperator">
                 <b>o</b>
               </div>
-              <!-- <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control input-lg"
-                  name="username"
-                  placeholder="Nombre de usuario"
-                  required="required"
-                  v-model="username"
-                />
-              </div> -->
               <div class="form-group">
                 <input
                   type="email"
@@ -48,17 +41,12 @@
                   v-model="password"
                 />
               </div>
-              <!-- <div class="form-group">
-                <input
-                  type="password"
-                  class="form-control input-lg"
-                  name="confirm_password"
-                  placeholder="Confirm Password"
-                  required="required"
-                />
-              </div> -->
               <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg btn-block signup-btn" @click="register">Registrarse</button>
+                <button
+                  type="submit"
+                  class="btn btn-success btn-lg btn-block signup-btn"
+                  @click="register"
+                >Registrarse</button>
               </div>
             </form>
             <div class="text-center">
@@ -66,23 +54,21 @@
               <a @click="navigateTo('login')">Entrá acá</a>
             </div>
           </div>
-        </panel>
+        </v-col>
+      </v-row>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
 import AuthenticationService from "@/services/AuthenticationService";
-import Panel from '@/components/Panel'
 export default {
   data() {
     return {
-      //username: "",
       email: "",
       password: "",
       error: null
     };
-  },
-  components:{
-    Panel
   },
   methods: {
     async register() {
@@ -107,9 +93,9 @@ export default {
 
 <style scoped>
 .container {
-  height: 89vh;
+  height: 90vh;
   display: grid;
-  grid-template-rows: 84vh 5vh;
+  grid-template-rows: 85vh 5vh;
   font-family: "Roboto", sans-serif;
 }
 

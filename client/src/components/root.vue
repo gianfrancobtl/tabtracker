@@ -85,10 +85,10 @@ p, a, h1, h2, h3, li, span {
 }
 
 .container{
-    height: 89vh;
+    height: 90vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 80vh 9vh;
+    grid-template-rows: 80vh 10h;
 }
 
 .container .left-box {

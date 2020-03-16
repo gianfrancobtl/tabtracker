@@ -10,6 +10,7 @@ function jwtSignUser (user) {
 }
 
 module.exports = {
+  //Registration controller
   async register (req, res) {
     try {
       const user = await User.create(req.body)
@@ -24,6 +25,8 @@ module.exports = {
       })
     }
   },
+  
+  // Login controller
   async login (req, res) {
     try {
       const {email, password} = req.body

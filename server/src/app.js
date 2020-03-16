@@ -14,7 +14,7 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
-sequelize.sync({force: true})
+sequelize.sync()
     .then(() => {
         app.listen(config.port)
         console.log(`Server stated on port ${config.port}`)
