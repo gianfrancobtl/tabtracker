@@ -3,14 +3,14 @@
     <v-flex xs4>
       <panel title="Song Metadata" >
         <v-text-field
-          label="Title"
+          label="Título"
           required
           :rules="[required]"
           v-model="song.title"
         ></v-text-field>
 
         <v-text-field
-          label="Artist"
+          label="Intérprete"
           required
           :rules="[required]"
           v-model="song.artist"
@@ -64,11 +64,11 @@
           v-model="song.lyrics"
         ></v-text-field>
       </panel>
-
+      <br>
       <div class="danger-alert" v-if="error">
         {{error}}
       </div>
-
+      <br>
       <v-btn
         dark
         class="cyan"
@@ -96,7 +96,7 @@ export default {
         tab: null
       },
       error: null,
-      required: (value) => !!value || 'Required.'
+      required: (value) => !!value || 'Campo obligatorio'
     }
   },
   components: {
@@ -109,7 +109,7 @@ export default {
         .keys(this.song)
         .every(key => !!this.song[key])
       if (!areAllFieldsFilledIn) {
-        this.error = 'Please fill in all the required fields.'
+        this.error = 'Por favor rellene todos los campos obligatorios'
         return
       }
       try {

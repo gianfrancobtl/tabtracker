@@ -41,6 +41,8 @@
                   v-model="password"
                 />
               </div>
+              
+              <div class="danger-alert" v-html="error" />
               <div class="form-group">
                 <button
                   type="submit"
