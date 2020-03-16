@@ -1,32 +1,5 @@
 <template>
-  <v-layout class="container">
-    <v-flex xs6 offset-xs3 class="fill-height" fluid>
-      <v-row>
-        <v-col align="center">
-          <!-- <v-card width="400px" class="mx-auto mt-5">
-            <v-card-title>
-              <h1 class="display-1">Sign Up</h1>
-            </v-card-title>
-            <v-card-text>
-              <v-form autocomplete="off">
-                <v-text-field label="Email" v-model="email" prepend-icon="person"></v-text-field>
-                <v-text-field
-                  label="Password"
-                  type="password"
-                  v-model="password"
-                  prepend-icon="lock"
-                  autocomplete="new-password"
-                ></v-text-field>
-              </v-form>
-              <div class="danger-alert" v-html="error" />
-            </v-card-text>
-            <v-divider></v-divider>
-            <v-card-actions>
-              <v-btn>Log in with Google</v-btn>
-              <v-spacer></v-spacer>
-              <v-btn @click="register">Sign up</v-btn>
-            </v-card-actions>
-          </v-card>-->
+  <panel>
           <div class="signup-form">
             <form>
               <h2>Registrate</h2>
@@ -45,15 +18,16 @@
               <div class="or-seperator">
                 <b>o</b>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <input
                   type="text"
                   class="form-control input-lg"
                   name="username"
                   placeholder="Nombre de usuario"
                   required="required"
+                  v-model="username"
                 />
-              </div>
+              </div> -->
               <div class="form-group">
                 <input
                   type="email"
@@ -61,6 +35,7 @@
                   name="email"
                   placeholder="Dirección de email"
                   required="required"
+                  v-model="email"
                 />
               </div>
               <div class="form-group">
@@ -70,6 +45,7 @@
                   name="password"
                   placeholder="Contraseña"
                   required="required"
+                  v-model="password"
                 />
               </div>
               <!-- <div class="form-group">
@@ -87,29 +63,32 @@
             </form>
             <div class="text-center">
               Ya tenés una cuenta?
-              <a href="#">Entrá acá</a>
+              <a @click="navigateTo('login')">Entrá acá</a>
             </div>
           </div>
-        </v-col>
-      </v-row>
-    </v-flex>
-  </v-layout>
+        </panel>
 </template>
 
 <script>
 import AuthenticationService from "@/services/AuthenticationService";
+import Panel from '@/components/Panel'
 export default {
   data() {
     return {
+      //username: "",
       email: "",
       password: "",
       error: null
     };
   },
+  components:{
+    Panel
+  },
   methods: {
     async register() {
       try {
         const response = await AuthenticationService.register({
+          //username: this.username,
           email: this.email,
           password: this.password
         });
@@ -118,6 +97,9 @@ export default {
       } catch (error) {
         this.error = error.response.data.error;
       }
+    },
+    navigateTo(route) {
+      this.$router.push(route);
     }
   }
 };

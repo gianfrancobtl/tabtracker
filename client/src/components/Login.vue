@@ -1,39 +1,10 @@
 <template>
-  <v-layout class="container">
-    <v-flex xs6 offset-xs3 class="fill-height" fluid>
-      <v-row>
-        <v-col align="center">
-          <!-- <v-card width="400px" class="mx-auto mt-5">
-              <v-card-actions>
-                <v-btn>Continua con Google</v-btn>
-              </v-card-actions>
-              <v-divider></v-divider>
-            <v-card-title>
-              <h1 class="display-1">inicia sesión con tu email</h1>
-            </v-card-title>
-            <v-card-text>
-              <v-form>
-                <v-text-field label="Email" v-model= "email" prepend-icon="person"></v-text-field>
-                <v-text-field
-                  label="Contraseña"
-                  type= "password"
-                  v-model= "password"
-                  prepend-icon="lock"
-                ></v-text-field>
-              </v-form>
-              <div class="danger-alert" v-html="error" />
-            </v-card-text>
-            <v-divider></v-divider>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn @click="login">Entrar</v-btn>
-            </v-card-actions>
-          </v-card>-->
+  <panel>
           <div class="login-form">
-            <form action="/examples/actions/confirmation.php" method="post">
+            <form>
               <div class="text-center social-btn">
                 <a href="#" class="btn btn-primary btn-lg btn-block">
-                  <i class="fa fa-facebook"></i> Continuar con
+                  <font-awesome-icon class="icon" icon="facebook" /> Continuar con
                   <b>Facebook</b>
                 </a>
                 <a href="#" class="btn btn-info btn-lg btn-block">
@@ -72,17 +43,15 @@
             </form>
             <div class="text-center">
               <span class="text-muted">No tenés una cuenta?</span>
-              <a href="#">Registrate</a>
+              <a @click="navigateTo('register')">Registrate</a>
             </div>
           </div>
-        </v-col>
-      </v-row>
-    </v-flex>
-  </v-layout>
+        </panel>
 </template>
 
 <script>
 import AuthenticationService from "@/services/AuthenticationService";
+import Panel from '@/components/Panel'
 export default {
   data() {
     return {
@@ -90,6 +59,10 @@ export default {
       password: "",
       error: null
     };
+  },
+
+  components:{
+    Panel
   },
 
   methods: {
@@ -104,6 +77,9 @@ export default {
       } catch (error) {
         this.error = error.response.data.error;
       }
+    },
+    components:{
+      Panel
     }
   }
 };
@@ -167,7 +143,7 @@ export default {
 .social-btn .btn-danger {
   background: #df4930;
 }
-.social-btn .btn i {
+.social-btn .btn .icon {
   margin-right: 9px;
   font-size: 20px;
   min-width: 25px;
