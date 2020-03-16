@@ -8,7 +8,7 @@
     </v-toolbar-title>
     
     <v-toolbar-items>
-      <v-btn flat dark :to="{
+      <v-btn dark text :to="{
           name: 'songs'
         }">Browse</v-btn>
     </v-toolbar-items>
@@ -17,8 +17,8 @@
     
     <v-toolbar-items>
       <v-btn
-        flat
         dark
+        text
         :to="{
           name: 'register'
         }"
@@ -27,7 +27,7 @@
 
       <v-btn
         flat
-        dark
+        text
         :to="{
           name: 'login'
         }"

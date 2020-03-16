@@ -1,7 +1,7 @@
 <template>
-  <v-layout>
+  <v-layout class="container">
     <v-flex xs4>
-      <panel title="Song Metadata">
+      <panel title="Song Metadata" >
         <v-text-field
           label="Title"
           required
@@ -81,6 +81,7 @@
 
 <script>
 import SongsService from '@/services/SongsService'
+import Panel from "@/components/Panel";
 export default {
   data () {
     return {
@@ -97,6 +98,9 @@ export default {
       error: null,
       required: (value) => !!value || 'Required.'
     }
+  },
+  components: {
+    Panel
   },
   methods: {
     async create () {
@@ -122,4 +126,8 @@ export default {
 </script>
 
 <style scoped>
+.container{
+    height: 90vh;
+    grid-template-rows: 80vh 10vh;
+}
 </style>

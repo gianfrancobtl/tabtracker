@@ -1,10 +1,10 @@
 <template>
-  <v-layout>
-    <v-flex xs4>
-      <panel class="container">
+  <v-layout class="container">
+    <v-flex ml-2>
+      <panel title="Songs" align="center">
         <div v-for="song in songs" :key="song.id">
-          {{song.title}}
-          {{song.album}}
+          {{song.title}} -
+          {{song.album}} -
           {{song.artist}}
         </div>
       </panel>
