@@ -1,37 +1,40 @@
 <template>
   <v-toolbar fixed class="flex-container" dark>
+    
     <v-toolbar-title class="mr-4">
-        <router-link 
-        class="home"
-        tag="span"
-        :tffo="{
+      <router-link class="home" tag="span" :to="{
           name: 'root'
-        }">
-        TabTracker
-      </router-link>
-        </v-toolbar-title>
-    <v-spacer></v-spacer>
+        }">MyApp</router-link>
+    </v-toolbar-title>
+    
     <v-toolbar-items>
       <v-btn flat dark :to="{
+          name: 'songs'
+        }">Browse</v-btn>
+    </v-toolbar-items>
+
+    <v-spacer></v-spacer>
+    
+    <v-toolbar-items>
+      <v-btn
+        flat
+        dark
+        :to="{
           name: 'register'
         }"
         v-if="!$store.state.isUserLoggedIn"
-        >Regístrate</v-btn>
+      >Regístrate</v-btn>
 
-      <v-btn flat dark :to="{
+      <v-btn
+        flat
+        dark
+        :to="{
           name: 'login'
         }"
         v-if="!$store.state.isUserLoggedIn"
-        >Inicia sesión</v-btn>
+      >Inicia sesión</v-btn>
 
-        <v-btn 
-        v-if="$store.state.isUserLoggedIn"
-        flat 
-        dark
-        @click="logout">
-        Log Out
-      </v-btn>
-
+      <v-btn v-if="$store.state.isUserLoggedIn" flat dark @click="logout">Log Out</v-btn>
     </v-toolbar-items>
   </v-toolbar>
 </template>
@@ -39,20 +42,19 @@
 <script>
 export default {
   methods: {
-    logout () {
-      this.$store.dispatch('setToken', null)
-      this.$store.dispatch('setUser', null)
+    logout() {
+      this.$store.dispatch("setToken", null);
+      this.$store.dispatch("setUser", null);
       this.$router.push({
-        name: 'root'
-      })
+        name: "root"
+      });
     }
   }
 };
 </script>
 
 <style scoped>
-
-.flex-container{
+.flex-container {
   height: 5vh;
 }
 
@@ -61,6 +63,6 @@ export default {
 }
 
 .home:hover {
-  color: #E9E;
+  color: #e9e;
 }
 </style> */
