@@ -12,12 +12,13 @@
           {{song.genre}}
         </div>
 
-<!--         <v-btn
+         <v-btn
           dark
           class="cyan"
           :to="{
             name: 'song-edit', 
             params () {
+              // dinamically changes the id
               return {
                 songId: song.id
               }
@@ -25,13 +26,13 @@
           }">
           Edit
         </v-btn>
- -->
+
         <v-btn
           v-if="isUserLoggedIn && !bookmark"
           dark
           class="cyan"
           @click="setAsBookmark">
-          Set As Bookmark
+          Guardala como tu favorita
         </v-btn>
 
         <v-btn
@@ -39,7 +40,7 @@
           dark
           class="cyan"
           @click="unsetAsBookmark">
-          Unset As Bookmark
+          Borrar canción destacada
         </v-btn>
       </v-flex>
 

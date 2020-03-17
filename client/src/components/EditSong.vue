@@ -48,21 +48,18 @@
 
     <v-flex xs8>
       <panel title="Song Structure" class="ml-2">
-        <v-text-field
-          label="Tab"
-          multi-line
-          required
-          :rules="[required]"
+        <v-textarea
           v-model="song.tab"
-        ></v-text-field>
-
-        <v-text-field
-          label="Lyrics"
-          multi-line
           required
+          label="Ingrese aquí los tabs de su canción"
           :rules="[required]"
+        ></v-textarea>
+        <v-textarea
           v-model="song.lyrics"
-        ></v-text-field>
+          required
+          label="Ingrese aquí la letra de su canción"
+          :rules="[required]"
+        ></v-textarea>
       </panel>
 
       <div class="danger-alert" v-if="error">
@@ -73,7 +70,7 @@
         dark
         class="cyan"
         @click="save">
-        Save Song
+        Guardar canción
       </v-btn>
     </v-flex>
   </v-layout>
@@ -134,4 +131,4 @@ export default {
 </script>
 
 <style scoped>
-</style>
+</style>  

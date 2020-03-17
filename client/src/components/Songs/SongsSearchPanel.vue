@@ -1,5 +1,5 @@
 <template>
-  <panel title="Search">
+  <panel title="Encontrá lo que buscás">
     <v-text-field
       label="Search by song title, artist, album, or genre"
       v-model="search"

@@ -44,11 +44,10 @@
               
               <div class="danger-alert" v-html="error" />
               <div class="form-group">
-                <button
-                  type="submit"
+                <v-btn
                   class="btn btn-success btn-lg btn-block signup-btn"
                   @click="register"
-                >Registrarse</button>
+                >Registrarse</v-btn>
               </div>
             </form>
             <div class="text-center">
@@ -82,6 +81,9 @@ export default {
         });
         this.$store.dispatch("setToken", response.data.token);
         this.$store.dispatch("setUser", response.data.user);
+        this.$router.push({
+          name: 'songs'
+        })
       } catch (error) {
         this.error = error.response.data.error;
       }

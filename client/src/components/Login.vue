@@ -45,11 +45,10 @@
               </div>
               <div class="danger-alert" v-html="error" />
               <div class="form-group">
-                <button
-                  type="submit"
+                <v-btn
                   class="btn btn-success btn-lg btn-block login-btn"
                   @click="login"
-                >Entrar</button>
+                >Entrar</v-btn>
               </div>
             </form>
             <div class="text-center">

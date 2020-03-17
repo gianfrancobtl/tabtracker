@@ -2,9 +2,8 @@
   <panel title="Recently Viewed Songs">
     <v-data-table
       :headers="headers"
-      :pagination.sync="pagination"
       :items="histories">
-      <template slot="items" scope="props">
+      <template slot="items" slot-scope="props">
         <td class="text-xs-right">
           {{props.item.title}}
         </td>
@@ -32,10 +31,6 @@ export default {
           value: 'artist'
         }
       ],
-      pagination: {
-        sortBy: 'createdAt',
-        descending: true
-      },
       histories: []
     }
   },
