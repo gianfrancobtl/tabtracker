@@ -1,16 +1,16 @@
 <template>
-  <v-layout class="container">
+  <v-layout>
     <v-flex xs4>
-      <panel title="Song Metadata" >
+      <panel title="Song Metadata">
         <v-text-field
-          label="Título"
+          label="Title"
           required
           :rules="[required]"
           v-model="song.title"
         ></v-text-field>
 
         <v-text-field
-          label="Intérprete"
+          label="Artist"
           required
           :rules="[required]"
           v-model="song.artist"
@@ -64,16 +64,16 @@
           v-model="song.lyrics"
         ></v-text-field>
       </panel>
-      <br>
+
       <div class="danger-alert" v-if="error">
         {{error}}
       </div>
-      <br>
+
       <v-btn
         dark
         class="cyan"
-        @click="create">
-        Create Song
+        @click="save">
+        Save Song
       </v-btn>
     </v-flex>
   </v-layout>
@@ -95,35 +95,43 @@ export default {
         tab: null
       },
       error: null,
-      required: (value) => !!value || 'Campo obligatorio'
+      required: (value) => !!value || 'Required.'
     }
   },
   methods: {
-    async create () {
+    async save () {
       this.error = null
       const areAllFieldsFilledIn = Object
         .keys(this.song)
         .every(key => !!this.song[key])
       if (!areAllFieldsFilledIn) {
-        this.error = 'Por favor rellene todos los campos obligatorios'
+        this.error = 'Please fill in all the required fields.'
         return
       }
+      const songId = this.$store.state.route.params.songId
       try {
-        await SongsService.post(this.song)
+        await SongsService.put(this.song)
         this.$router.push({
-          name: 'songs'
+          name: 'song',
+          params: {
+            songId: songId
+          }
         })
       } catch (err) {
         console.log(err)
       }
+    }
+  },
+  async mounted () {
+    try {
+      const songId = this.$store.state.route.params.songId
+      this.song = (await SongsService.show(songId)).data
+    } catch (err) {
+      console.log(err)
     }
   }
 }
 </script>
 
 <style scoped>
-.container{
-    height: 90vh;
-    grid-template-rows: 80vh 10vh;
-}
 </style>

@@ -34,7 +34,7 @@
         v-if="!$store.state.isUserLoggedIn"
       >Inicia sesión</v-btn>
 
-      <v-btn v-if="$store.state.isUserLoggedIn" flat dark @click="logout">Log Out</v-btn>
+      <v-btn v-if="$store.state.isUserLoggedIn" text dark @click="logout">Log Out</v-btn>
     </v-toolbar-items>
   </v-toolbar>
 </template>
