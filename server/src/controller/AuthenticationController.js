@@ -10,7 +10,6 @@ function jwtSignUser (user) {
 }
 
 module.exports = {
-  //Registration controller
   async register (req, res) {
     try {
       const user = await User.create(req.body)
@@ -25,8 +24,6 @@ module.exports = {
       })
     }
   },
-  
-  // Login controller
   async login (req, res) {
     try {
       const {email, password} = req.body
@@ -42,11 +39,10 @@ module.exports = {
         })
       }
 
-      console.log('user', user.toJSON())
       const isPasswordValid = await user.comparePassword(password)
       if (!isPasswordValid) {
         return res.status(403).send({
-          error: 'Please enter a valid password'
+          error: 'The login information was incorrect'
         })
       }
 

@@ -6,12 +6,17 @@ import Songs from '@/components/Songs/Index'
 import CreateSong from '@/components/CreateSong'
 import EditSong from '@/components/EditSong'
 import ViewSong from '@/components/ViewSong/Index'
+import root from '@/components/root'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'root',
+      component: root
+    },{
       path: '/register',
       name: 'register',
       component: Register

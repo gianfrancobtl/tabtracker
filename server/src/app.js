@@ -21,5 +21,6 @@ sequelize.sync()
     })
 
 require('./routes')(app);
+require('./passport');
 
 // app.listen(process.env.PORT || 8081);

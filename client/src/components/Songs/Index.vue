@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <v-layout class="container">
     <v-flex xs6 v-if="isUserLoggedIn">
       <songs-bookmarks />
       <recently-viewed-songs class="mt-2" />
@@ -46,6 +46,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  height: 90vh;
+  grid-template-rows: 80vh 10vh;
+}
 .song {
   padding: 20px;
   height: 330px;

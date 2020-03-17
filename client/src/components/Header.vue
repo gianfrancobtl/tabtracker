@@ -26,7 +26,7 @@
       >Regístrate</v-btn>
 
       <v-btn
-        flat
+        dark
         text
         :to="{
           name: 'login'
