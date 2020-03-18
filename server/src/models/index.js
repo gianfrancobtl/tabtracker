@@ -25,6 +25,7 @@ fs
     db[model.name] = model
   })
 
+//allows to make relations between diff DB's
 Object.keys(db).forEach(function (modelName) {
   if ('associate' in db[modelName]) {
     db[modelName].associate(db)

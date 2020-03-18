@@ -32,7 +32,7 @@
           dark
           class="cyan"
           @click="setAsBookmark">
-          Guardala como tu favorita
+          Guardar canción
         </v-btn>
 
         <v-btn
@@ -78,7 +78,8 @@ export default {
       }
       try {
         const bookmarks = (await BookmarksService.index({
-          songId: this.song.id
+          songId: this.$store.state.route.params.songId,
+          userId: this.$store.state.user.id
         })).data
         if (bookmarks.length) {
           this.bookmark = bookmarks[0]

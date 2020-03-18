@@ -1,7 +1,4 @@
-const {
-    History,
-    Song
-  } = require('../models')
+const { Song } = require('../models/Song')
   const _ = require('lodash')
   
   module.exports = {

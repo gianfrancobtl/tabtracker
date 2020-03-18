@@ -12,6 +12,7 @@ const users = require('./users.json')
 const bookmarks = require('./bookmarks.json')
 const histories = require('./histories.json')
 
+// creates a seed for every model created
 sequelize.sync({
         force: true
     })
