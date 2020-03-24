@@ -93,7 +93,7 @@ export default {
     async setAsBookmark () {
       try {
         this.bookmark = (await BookmarksService.post({
-          songId: this.song.id
+          songId: this.$store.state.route.params.songId,
         })).data
       } catch (err) {
         console.log(err)

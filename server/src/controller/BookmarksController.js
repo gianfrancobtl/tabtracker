@@ -1,6 +1,6 @@
 const {
     Bookmark,
-    Song
+    Song,
   } = require('../models')
   const _ = require('lodash')
   
@@ -36,6 +36,7 @@ const {
         })
       }
     },
+    
     async post (req, res) {
       try {
         const userId = req.user.id
@@ -63,6 +64,7 @@ const {
         })
       }
     },
+
     async remove (req, res) {
       try {
         const userId = req.user.id

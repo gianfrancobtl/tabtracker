@@ -2,6 +2,8 @@
   <panel title="Recently Viewed Songs">
     <v-data-table
       :headers="headers"
+      :sort-by.sync="sortBy"
+      :sort-desc.sync="sortDesc"
       :items="histories">
       <template slot="items" slot-scope="props">
         <td class="text-xs-right">
@@ -31,6 +33,8 @@ export default {
           value: 'artist'
         }
       ],
+      sortBy: "createdAt",
+      sortDesc: true,
       histories: []
     }
   },

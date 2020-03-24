@@ -1,6 +1,6 @@
 <template>
   <v-layout class="container">
-    <v-flex xs6 v-if="isUserLoggedIn">
+    <v-flex xs6 v-if= "isUserLoggedIn">
       <songs-bookmarks />
       <recently-viewed-songs class="mt-2" />
     </v-flex>
